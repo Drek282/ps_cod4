@@ -51,10 +51,14 @@ var $CLAN_MODTYPES = array(
 );
 
 
-function PS_cod4(&$db) {
+function __construct(&$db) {
 	parent::PS($db);
 	$this->CLAN_MAP_MODTYPES = $this->CLAN_MODTYPES;
 	$this->cod4_remove_columns = array('headshotkills','headshotkillspct','accuracy');
+}
+
+function PS_cod4(&$db) {
+    self::__construct($db);
 }
 
 function worldid_noun($plural = false) {
